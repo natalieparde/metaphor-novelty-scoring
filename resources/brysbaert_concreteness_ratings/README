@@ -1,0 +1,12 @@
+The Brysbaert concreteness scores can be downloaded at the following website:
+http://crr.ugent.be/archives/1330
+
+Download the .txt file, not the Excel file, for use with the feature extraction
+code. Make sure to cite the original paper on the Brysbaert concreteness scores
+if you use this resource in your own work!
+
+Brysbaert, M., Warriner, A.B., & Kuperman, V. (2014). Concretness ratings for
+40 thousand generally known English word lemmas. Behavior Research Methods, 46,
+904-911.
+
+-Natalie
