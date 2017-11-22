@@ -148,17 +148,26 @@ A quick guide to some of the lines of source code that you may wish to modify is
 
 #### NNFeatureGenerator.java
 Line 241: The location where you have stored a pre-generated file containing, for each word in your dataset, the probability that the word belongs to each of 100 topics generated from Project Gutenberg.  If you're using our dataset, leave this line as-is (I've included the pre-generated file in feature-extraction/resources/vuamc_data/).
+
 Line 242: The location where you have stored a pre-generated file containing, for each word in your dataset, the probability that the word belongs to each of 100 topics generated from English Wikipedia.  If you're using our dataset, leave this line as-is (I've included the pre-generated file in feature-extraction/resources/vuamc_data/).
+
 Line 822: The location where you have stored the Brysbaert concreteness ratings.
+
 Line 823: The location where you have stored SentiWordNet.
+
 Line 824: The location where you have stored the MRC Psycholinguistic Database.
+
 Line 825: The location where you have stored the expanded MRC+ Database.
+
 Line 826: The location where you have stored the pretrained Google News embeddings.
+
 Line 836: The name of your input file.  The input file should be stored in the base directory for this project (feature-extraction/).
 
 #### Web1TDatabase.java
 Line 50: The location and name of your database containing the Google Web1T dataset.
+
 Line 51: Your MySQL username.
+
 Line 52: Your MySQL password.
 
 ----------------------
