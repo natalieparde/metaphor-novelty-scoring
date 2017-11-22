@@ -100,3 +100,68 @@ That command will search all subdirectories of ~/.m2/repository/ for JAR files c
 
 ### A Note About MySQL
 To compute PMI features, this program requires access to *either* a database containing Google's Web1T corpus (https://catalog.ldc.upenn.edu/LDC2006T13) *or* a directory of pre-computed, serialized frequency and PMI files.  I have provided the latter of these two in feature-extraction/resources/serialized_pmis/.  So, if you just want to recompute features for instances from our dataset, there should be no need for any database access (the program will throw a warning saying it couldn't connect to the database, but this won't impact anything).  However, if you want to compute features for instances from other datasets, you will need to set up your own Web1T database.  One of the source files, `Web1TDatabase.java`, includes functions for doing this, but you'll have to get a copy of Web1T either from the link above or from your home institution (if you're affiliated with UNT's HiLT Lab, contact me).
+
+### Running the JAR File
+After you've downloaded the third-party resources and required libraries, you're ready to run the JAR file!  Make sure you're in the feature-extraction/ directory, and type:
+```
+java -jar featureGenerator.jar <name of input CSV file>
+```
+
+For example:
+```
+java -jar featureGenerator.jar gold_metaphor_novelty.csv
+```
+
+The input CSV file should contain two columns, which we identify in the header row as *ID* and *Label* (naming the columns *ID* and *Label* is not required, but having a header row is).  The first column should have a unique identifier for each instance, and the second column should have the metaphor novelty score associated with that instance.  You can refer to `gold_metaphor_novelty.csv` as an example if you need to generate your own CSV files; if you just want to use our dataset, you can use the provided CSV files `predictions_Folds_1234.csv` (our training set) and `gold_metaphor_novelty.csv` (our test set).
+
+---------------------------------------------------------------------
+
+## Modifying the Source Code in Eclipse
+
+### Downloading Eclipse
+These instructions describe how to modify the source code using Eclipse (you're welcome to use any other IDE of your choice, but if you do, some of these instructions won't be particularly relevant to you).  If you don't currently have Eclipse installed on your computer, you can download it here: https://www.eclipse.org/
+
+The installer will walk you through the installation process.
+
+### Importing the Source Code into Eclipse
+Open Eclipse and click on File -> New -> Java Project in the menu bar at the top of the screen.
+
+On the window that appears, unselect "Use default location."
+
+You should now be able to edit the "Location:" box.  Click on "Browse..." and navigate to and select feature-extraction/.
+
+At the bottom of the screen, select "Next."
+
+On the next screen that appears, enter "feature-extraction/bin" as the "Default output folder."  Then click "Finish."
+
+A warning screen might appear, asking you if you want to remove all generated resources from the old location.  If it does, click "Yes."
+
+### Recompiling the Source Code
+First, use Maven to install all of the required libraries by right-clicking on the project's pom.xml in the Eclipse Package Explorer and then clicking Run As -> Maven install.  If you've already used the `featureGenerator` JAR file (see instructions above), this will run extremely quickly because you've already installed the libraries.  If you haven't already used the JAR file, this may take a few minutes to complete.
+
+Next, right-click on NNFeatureGenerator.java in the Eclipse Package Explorer and then click Run As -> Java Application.
+
+That's all there is to it!  You'll be able to see the program output in the Eclipse Console.
+
+### Source Code Guide
+A quick guide to some of the lines of source code that you may wish to modify is included below:
+
+#### NNFeatureGenerator.java
+Line 241: The location where you have stored a pre-generated file containing, for each word in your dataset, the probability that the word belongs to each of 100 topics generated from Project Gutenberg.  If you're using our dataset, leave this line as-is (I've included the pre-generated file in feature-extraction/resources/vuamc_data/).
+Line 242: The location where you have stored a pre-generated file containing, for each word in your dataset, the probability that the word belongs to each of 100 topics generated from English Wikipedia.  If you're using our dataset, leave this line as-is (I've included the pre-generated file in feature-extraction/resources/vuamc_data/).
+Line 822: The location where you have stored the Brysbaert concreteness ratings.
+Line 823: The location where you have stored SentiWordNet.
+Line 824: The location where you have stored the MRC Psycholinguistic Database.
+Line 825: The location where you have stored the expanded MRC+ Database.
+Line 826: The location where you have stored the pretrained Google News embeddings.
+Line 836: The name of your input file.  The input file should be stored in the base directory for this project (feature-extraction/).
+
+#### Web1TDatabase.java
+Line 50: The location and name of your database containing the Google Web1T dataset.
+Line 51: Your MySQL username.
+Line 52: Your MySQL password.
+
+----------------------
+
+## That's All!
+If you have any questions about running the code, feel free to contact me on here or at: natalie.parde@unt.edu.
