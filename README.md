@@ -1,18 +1,14 @@
 # metaphor-novelty-scoring
 
-This directory contains the Java source code used to extract metaphor novelty features for our paper:
+This directory contains the Java source code used to extract metaphor novelty features for our papers:
 
 Natalie Parde and Rodney D. Nielsen. Exploring the Terrain of Metaphor Novelty: A Regression-based Approach for Automatically Scoring Metaphors. To appear in the *Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18)*. New Orleans, Louisiana, February 2-7, 2018.
 
-It also contains a precompiled JAR file, `featureGenerator.jar`, that you can use to extract features if you would prefer not to mess around with the code.  Regardless of whether you recompile the source code yourself or use `featureGenerator.jar`, you'll have to download the following resources first:
-- Brysbaert Concreteness Ratings
-- SentiWordNet
-- MRC Psycholinguistic Database
-- MRC+ Expanded Imageability and Concreteness Scores
-- WordNet
-- Pretrained Google News Embeddings
+and
 
-This README is divided into several sections:
+Natalie Parde and Rodney D. Nielsen. A Corpus of Metaphor Novelty Scores for Syntactically-Related Word Pairs. To appear in the *Proceedings of the 11th International Conference on Language Resources and Evaluation (LREC 2018)*. Miyazaki, Japan, May 7-12, 2018.
+
+It also contains a precompiled JAR file, `featureGenerator.jar`, that you can use to extract the full range of features associated with the AAAI paper if you would prefer not to mess around with the code.  This README is divided into several sections:
 1. **Resources:** Describes how you can download the various resources used to compute features.  You'll need to download these regardless of whether you use `featureGenerator.jar` or recompile the source code yourself.
 2. **Running `featureGenerator.jar`:** Describes how to run the precompiled JAR file to extract features.
 3. **Modifying the Source Code in Eclipse:** Describes how to set up the feature extraction source code in an Eclipse project so you can play around with it and recompile it yourself.
@@ -140,6 +136,8 @@ A warning screen might appear, asking you if you want to remove all generated re
 First, use Maven to install all of the required libraries by right-clicking on the project's pom.xml in the Eclipse Package Explorer and then clicking Run As -> Maven install.  If you've already used the `featureGenerator` JAR file (see instructions above), this will run extremely quickly because you've already installed the libraries.  If you haven't already used the JAR file, this may take a few minutes to complete.
 
 Next, right-click on NNFeatureGenerator.java in the Eclipse Package Explorer and then click Run As -> Java Application.
+
+*Note: If you came here to run the benchmark established in Parde and Nielsen (LREC 2018) instead of the full approach evaluated in Parde and Nielsen (AAAI 2018), right-click on LRECBaseline.java in the Eclipse Package Explorer and then click Run As -> Java Application.  LRECBaseline.java does not require all of the resources listed above!  To run only this file, you will only need to download the Google News Embeddings.*
 
 That's all there is to it!  You'll be able to see the program output in the Eclipse Console.
 
