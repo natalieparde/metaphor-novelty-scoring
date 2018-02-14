@@ -137,7 +137,7 @@ First, use Maven to install all of the required libraries by right-clicking on t
 
 Next, right-click on NNFeatureGenerator.java in the Eclipse Package Explorer and then click Run As -> Java Application.
 
-*Note: If you came here to run the benchmark established in Parde and Nielsen (LREC 2018) instead of the full approach evaluated in Parde and Nielsen (AAAI 2018), right-click on LRECBaseline.java in the Eclipse Package Explorer and then click Run As -> Java Application.  LRECBaseline.java does not require all of the resources listed above!  To run only this file, you will only need to download the Google News Embeddings.*
+*Note: If you came here to run the benchmark established in Parde and Nielsen (LREC 2018) instead of the full approach evaluated in Parde and Nielsen (AAAI 2018), right-click on LRECBaseline.java in the Eclipse Package Explorer and then click Run As -> Java Application.  LRECBaseline.java does not require all of the resources listed above!  If you are only interested in running this version, you will only need to download the Google News Embeddings.*
 
 That's all there is to it!  You'll be able to see the program output in the Eclipse Console.
 
